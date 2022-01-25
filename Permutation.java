@@ -1,0 +1,23 @@
+public class Permutation {
+    public static void main(String[] args){
+        
+        permutation("", "abc");
+    }   
+
+// TASK:- For a given String "abc" find all the permutations possible {abc, acb, bac, bca, cab, cba}
+    static void permutation(String p, String up){
+        if(up.isEmpty()){
+            System.out.println(p);
+            return;
+        }
+        
+        char ch = up.charAt(0);
+        for (int i = 0; i <= p.length(); i++) {
+            String f = p.substring(0, i);
+            String s = p.substring(i, p.length());
+
+            permutation(f+ch+s, up.substring(1));
+            
+        }
+    }
+}
